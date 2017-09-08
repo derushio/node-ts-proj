@@ -1,7 +1,13 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "target": "es5"
+        "target": "es5",
+        "types": [
+            "node"
+        ],
+        "lib": [
+            "es2017"
+        ]
     },
     "include": [
         "**/*.ts"
