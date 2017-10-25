@@ -1,4 +1,4 @@
-import express from "express"
+import * as express from "express"
 import * as sourceMapSupport from 'source-map-support'
 
 const server = express()
