@@ -15,7 +15,9 @@ function clean() {
 }
 
 function resource_copy() {
-    rsync -a --exclude "*.ts" --exclude "tsconfig.json" "./" "$DIST_DIR"
+    rsync -a --exclude "*.ts" --exclude "tsconfig.json" --exclude "package.json" \
+        --exclude "package-lock.json" --exclude "node_modules" --exclude "scripts.sh" \
+        "./" "$DIST_DIR"
 }
 
 function build() {
@@ -23,6 +25,7 @@ function build() {
 }
 
 function test_build() {
+    resource_copy
     build
 
     cp "package.json" "$DIST_DIR"
@@ -31,6 +34,7 @@ function test_build() {
 
 function clean_build() {
     clean
+    resource_copy
     build
 
     cp "package.json" "$DIST_DIR"
