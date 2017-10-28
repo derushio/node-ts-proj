@@ -16,7 +16,7 @@ function clean() {
 
 function resource_copy() {
     rsync -a --exclude "*.ts" --exclude "tsconfig.json" --exclude "package.json" \
-        --exclude "package-lock.json" --exclude "node_modules" --exclude "scripts.sh" \
+        --exclude "package-lock.json" --exclude "/node_modules/" --exclude "scripts.sh" \
         "./" "$DIST_DIR"
 }
 
