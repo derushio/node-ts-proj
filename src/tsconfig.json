@@ -13,7 +13,7 @@
         "**/*.ts"
     ],
     "exclude": [
-        "tool/",
-        "node_modules/"
+        "tool",
+        "node_modules"
     ]
 }
