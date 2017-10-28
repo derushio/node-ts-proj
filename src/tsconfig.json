@@ -11,9 +11,5 @@
     },
     "include": [
         "**/*.ts"
-    ],
-    "exclude": [
-        "tool",
-        "node_modules"
     ]
 }

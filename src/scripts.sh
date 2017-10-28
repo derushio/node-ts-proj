@@ -39,7 +39,7 @@ function run_docker() {
 }
 
 function build_typedoc {
-    typedoc --name "$PROJ_NAME" --mode "file" --out "../document/typedoc" "$SRC_DIR"
+    typedoc --excludeExternals --externalPattern "**/node_modules/**" --ignoreCompilerErrors --name "$PROJ_NAME" --mode "file" --out "../document/typedoc/" "$SRC_DIR"
 }
 
 $1
