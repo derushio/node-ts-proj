@@ -14,6 +14,10 @@ function clean() {
         xargs -I{} rm -rf {}
 }
 
+function resource_copy() {
+    rsync -a --exclude "*.ts" --exclude "tsconfig.json" "./" "$DIST_DIR"
+}
+
 function build() {
     tsc -p "." --outDir "$DIST_DIR" --sourcemap
 }
