@@ -24,11 +24,21 @@ function test_build() {
     cp "package.json" "$DIST_DIR"
 }
 
+function test_build_sync_node_modules() {
+    test_build
+    rsync -a ./node_modules/ ../dist/node_modules/
+}
+
 function clean_build() {
     clean
     build
 
     cp "package.json" "$DIST_DIR"
+}
+
+function clean_build_sync_node_modules() {
+    clean_build
+    rsync -a ./node_modules/ ../dist/node_modules/
 }
 
 function build_typedoc {
