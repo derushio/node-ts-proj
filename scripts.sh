@@ -4,8 +4,8 @@ SUCCESS=0
 FAIL=1
 
 PROJ_NAME="proj"
-SRC_DIR="."
-DIST_DIR="$SRC_DIR/../dist"
+SRC_DIR="./src"
+DIST_DIR="./dist"
 
 function clean() {
     [ ! -e "$DIST_DIR" ] && mkdir "$DIST_DIR"
@@ -42,7 +42,7 @@ function clean_build_sync_node_modules() {
 }
 
 function build_typedoc {
-    typedoc --name "$PROJ_NAME" --mode "modules" --out "../document/typedoc" "$SRC_DIR"
+    typedoc --name "$PROJ_NAME" --mode "modules" --out "./document/typedoc" "$SRC_DIR"
 }
 
 $1
