@@ -38,7 +38,7 @@ function clean_build() {
 
 function clean_build_sync_node_modules() {
     clean_build
-    rsync -a ./node_modules/ ../dist/node_modules/
+    rsync -a "./node_modules/" "${DIST_DIR}/node_modules/"
 }
 
 function build_typedoc {
