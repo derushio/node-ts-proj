@@ -26,7 +26,7 @@ function test_build() {
 
 function test_build_sync_node_modules() {
     test_build
-    rsync -a ./node_modules/ ../dist/node_modules/
+    rsync -a "./node_modules/" "${DIST_DIR}/node_modules/"
 }
 
 function clean_build() {
