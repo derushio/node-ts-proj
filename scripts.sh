@@ -16,11 +16,7 @@ function clean() {
 
 function build() {
     tsc -p "." --outDir "$DIST_DIR" --sourcemap
-}
-
-function test_build() {
-    build
-
+    rsync -a "$SRC_DIR/ssl" "$DIST_DIR"
     cp "package.json" "$DIST_DIR"
 }
 
@@ -28,24 +24,8 @@ function test_build() {
 # node-gypなどを使わず、node_modulesが共用でかまわない
 # 場合はこちらをお使いください
 ###
-function test_build_sync_node_modules() {
-    test_build
-    rsync -a "./node_modules/" "${DIST_DIR}/node_modules/"
-}
-
-function clean_build() {
-    clean
+function build_sync_node_modules() {
     build
-
-    cp "package.json" "$DIST_DIR"
-}
-
-###
-# node-gypなどを使わず、node_modulesが共用でかまわない
-# 場合はこちらをお使いください
-###
-function clean_build_sync_node_modules() {
-    clean_build
     rsync -a "./node_modules/" "${DIST_DIR}/node_modules/"
 }
 
