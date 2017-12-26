@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash -eu
 npm init
 npm install --save express typescript source-map-support
 npm install --save-dev typedoc

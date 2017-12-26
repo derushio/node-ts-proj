@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -eu
 
 SUCCESS=0
 FAIL=1
