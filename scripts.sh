@@ -16,7 +16,6 @@ function clean() {
 
 function build() {
     tsc -p "." --outDir "$DIST_DIR" --sourcemap
-    rsync -a "$SRC_DIR/ssl" "$DIST_DIR"
     cp "package.json" "$DIST_DIR"
 }
 
