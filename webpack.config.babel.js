@@ -2,6 +2,8 @@ import path from 'path';
 import webpack from 'webpack';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 
+import nodeExternals from 'webpack-node-externals';
+
 /**
  * Path / File
  */
@@ -22,6 +24,8 @@ const config = {
     entry: {
         main: path.resolve(srcPath, 'main.ts')
     },
+    externals: [nodeExternals()],
+
     output: {
         path: distPath,
         filename: '[name].' + outputFileName + '.js',
@@ -40,8 +44,7 @@ const config = {
         rules: [
             {
                 test: /\.ts(x?)$/,
-                loader: 'ts-loader',
-                options: { appendTsSuffixTo: [ /\.vue$/ ] }
+                loader: 'ts-loader'
             }
         ]
     },
