@@ -1,8 +1,8 @@
 #!/bin/bash -eu
+
 npm init
-npm install --save express typescript source-map-support
-npm install --save-dev typedoc
-node ./install-npm-script.js
+node ./_boilerplate/install-npm-scripts.js
+npm install
 
 rm ./install.sh
-rm ./install-npm-script.js
+rm -rf ./_boilerplate

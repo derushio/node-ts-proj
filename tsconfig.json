@@ -1,15 +1,22 @@
 {
     "compilerOptions": {
-        "module": "commonjs",
+        "module": "es2015",
         "target": "es5",
-        "types": [
-            "node"
-        ],
+        "moduleResolution": "node",
+        "strict": true,
+        "sourceMap": true,
+        "experimentalDecorators": true,
         "lib": [
+            "dom",
             "es2017"
-        ]
+        ],
+        "baseUrl": "src/",
+        "paths": {
+            "@/*": ["./*"]
+        }
     },
-    "include": [
-        "src/**/*.ts"
+    "includes": [
+        "node_modules/@types/**/*.d.ts",
+        "src/scripts/type/**/*.d.ts"
     ]
 }
