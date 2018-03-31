@@ -11,7 +11,7 @@ function build() {
 
 function dev() {
     export NODE_ENV='development'
-    clean && $(npm bin)/webpack && node dist/main.js
+    clean && $(npm bin)/webpack && node dist/main.bundle.js
 }
 
 if [ -z ${2+UNDEF} ]; then

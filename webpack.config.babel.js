@@ -53,11 +53,6 @@ const config = {
 };
 
 /**
- * add pages
- */
-addpage(config, 'index', '/', './static/favicon.ico');
-
-/**
  * When use in production (npm run build)
  */
 if (process.env.NODE_ENV === 'production') {
