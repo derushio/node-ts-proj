@@ -49,6 +49,20 @@ const config = {
         ]
     },
 
+    optimization: {
+        minimizer: [
+            new UglifyJsPlugin({
+                sourceMap: false,
+                uglifyOptions: {
+                    ecma: 8,
+                    compress: {
+                        warnings: false
+                    }
+                }
+            })
+        ]
+    },
+
     plugins: []
 };
 
@@ -63,15 +77,6 @@ if (process.env.NODE_ENV === 'production') {
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: '"production"'
-            }
-        }),
-        new UglifyJsPlugin({
-            sourceMap: false,
-            uglifyOptions: {
-                ecma: 8,
-                compress: {
-                    warnings: false
-                }
             }
         })
     ]);
