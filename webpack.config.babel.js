@@ -68,10 +68,6 @@ if (process.env.NODE_ENV === 'production') {
         new UglifyJsPlugin({
             sourceMap: false,
             uglifyOptions: {
-                mangle: {
-                    // Vue Componentが動かなくなる対策
-                    keep_fnames: true
-                },
                 ecma: 8,
                 compress: {
                     warnings: false
