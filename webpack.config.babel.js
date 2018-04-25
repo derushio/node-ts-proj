@@ -30,7 +30,7 @@ const config = {
         path: distPath,
         filename: '[name].' + outputFileName + '.js',
         // mark /dist/ folder as a public path so index.html can reach it
-        publicPath: '/'
+        publicPath: './'
     },
 
     resolve: {
@@ -62,7 +62,7 @@ if (process.env.NODE_ENV === 'production') {
     config.plugins = (config.plugins || []).concat([
         new webpack.DefinePlugin({
             'process.env': {
-                NODE_ENV: '"production"'
+                NODE_ENV: 'production'
             }
         }),
         new UglifyJsPlugin({
@@ -80,7 +80,7 @@ if (process.env.NODE_ENV === 'production') {
     config.plugins = (config.plugins || []).concat([
         new webpack.DefinePlugin({
             'process.env': {
-                NODE_ENV: '"development"'
+                NODE_ENV: 'development'
             }
         }),
     ]);
