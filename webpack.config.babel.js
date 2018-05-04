@@ -49,10 +49,12 @@ const config = {
         ]
     },
 
+    devtool: (process.env.NODE_ENV == 'production')? false: '#source-map',
+
     optimization: {
         minimizer: [
             new UglifyJsPlugin({
-                sourceMap: false,
+                sourceMap: (process.env.NODE_ENV == 'production')? false: true,
                 uglifyOptions: {
                     ecma: 8,
                     compress: {
@@ -63,32 +65,13 @@ const config = {
         ]
     },
 
-    plugins: []
-};
-
-/**
- * When use in production (npm run build)
- */
-if (process.env.NODE_ENV === 'production') {
-    /**
-     * https://vuejs.org/guide/deployment.html
-     */
-    config.plugins = (config.plugins || []).concat([
+    plugins: [
         new webpack.DefinePlugin({
             'process.env': {
-                NODE_ENV: '"production"'
+                NODE_ENV: `"${process.env.NODE_ENV}"`
             }
         })
-    ]);
-} else {
-    config.devtool = '#eval-source-map';
-    config.plugins = (config.plugins || []).concat([
-        new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: '"development"'
-            }
-        }),
-    ]);
+    ]
 };
 
 module.exports = config;
