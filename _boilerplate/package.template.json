@@ -3,6 +3,7 @@
         "clean": "./scripts.sh clean",
         "build": "./scripts.sh build",
         "dev": "./scripts.sh dev",
+        "build_typedoc": "./scripts.sh build_typedoc project",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "dependencies": {
@@ -18,6 +19,7 @@
         "rimraf": "^2.6.2",
         "source-map-support": "^0.5.4",
         "ts-loader": "^4.1.0",
+        "typedoc": "^0.11.1",
         "typescript": "^2.7.1",
         "uglifyjs-webpack-plugin": "^1.2.4",
         "webpack": "^4.4.1",
