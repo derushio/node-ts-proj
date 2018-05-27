@@ -11,7 +11,6 @@ const contextPath = path.resolve(__dirname, './');
 const distPath = path.resolve(__dirname, 'dist');
 const srcPath = path.resolve(__dirname, 'src');
 const entryScriptsPath = path.resolve(srcPath, 'scripts/entry');
-const outputFileName = 'bundle';
 
 /**
  * Webpack Config
@@ -28,7 +27,7 @@ const config = {
 
     output: {
         path: distPath,
-        filename: '[name].' + outputFileName + '.js',
+        filename: '[name].bundle.js',
         // mark /dist/ folder as a public path so index.html can reach it
         publicPath: './'
     },
