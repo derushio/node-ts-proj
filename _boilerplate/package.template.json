@@ -20,7 +20,7 @@
         "source-map-support": "^0.5.4",
         "ts-loader": "^4.1.0",
         "typedoc": "^0.11.1",
-        "typescript": "^2.7.1",
+        "typescript": "^2.9.1",
         "uglifyjs-webpack-plugin": "^1.2.4",
         "webpack": "^4.4.1",
         "webpack-cli": "^3.0.1",
