@@ -1,5 +1,6 @@
 import path from 'path';
 import webpack from 'webpack';
+
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 
 import nodeExternals from 'webpack-node-externals';
@@ -12,6 +13,8 @@ const distPath = path.resolve(__dirname, 'dist');
 const srcPath = path.resolve(__dirname, 'src');
 const entryScriptsPath = path.resolve(srcPath, 'scripts/entry');
 
+const isProduct = process.env.NODE_ENV == 'production';
+
 /**
  * Webpack Config
  */
@@ -23,7 +26,7 @@ const config = {
     entry: {
         main: path.resolve(srcPath, 'main.ts')
     },
-    externals: [nodeExternals()],
+    externals: [ nodeExternals() ],
 
     output: {
         path: distPath,
@@ -33,7 +36,7 @@ const config = {
     },
 
     resolve: {
-        extensions: ['.js', '.ts', '.json'],
+        extensions: [ '.js', '.ts', '.json' ],
         alias: {
             '@': path.resolve(srcPath)
         },
@@ -43,17 +46,23 @@ const config = {
         rules: [
             {
                 test: /\.ts(x?)$/,
-                loader: 'ts-loader'
+                use: [ 'ts-loader' ]
             }
         ]
     },
 
-    devtool: (process.env.NODE_ENV == 'production')? false: '#source-map',
+    plugins: [
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: `"${process.env.NODE_ENV}"`
+            }
+        })
+    ],
 
     optimization: {
         minimizer: [
             new UglifyJsPlugin({
-                sourceMap: (process.env.NODE_ENV == 'production')? false: true,
+                sourceMap: !isProduct,
                 uglifyOptions: {
                     ecma: 8,
                     compress: {
@@ -64,13 +73,7 @@ const config = {
         ]
     },
 
-    plugins: [
-        new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: `"${process.env.NODE_ENV}"`
-            }
-        })
-    ]
+    devtool: isProduct? false: '#source-map'
 };
 
 export default config;
