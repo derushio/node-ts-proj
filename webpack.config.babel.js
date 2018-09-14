@@ -44,8 +44,8 @@ const config = {
     module: {
         rules: [
             {
-                test: /\.ts(x?)$/,
-                use: [ 'tslint-loader' ],
+                test: /\.ts$/,
+                use: [ 'ts-loader', 'tslint-loader' ],
             },
         ],
     },
