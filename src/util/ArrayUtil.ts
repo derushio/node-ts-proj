@@ -2,8 +2,6 @@
  * ArrayUtil
  */
 export default class ArrayUtil {
-    private constructor() {}
-
     public static gen(num: number): number[];
 
     /**
@@ -23,4 +21,6 @@ export default class ArrayUtil {
 
         return array;
     }
+
+    private constructor() {}
 }

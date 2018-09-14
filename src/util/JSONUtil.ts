@@ -1,15 +1,15 @@
 export default class JSONUtil {
-    private constructor() {}
-
     public static tryParse(str: string): any {
-        let result: any | null
+        let result: any | null;
 
         try {
-            result = JSON.parse(str)
+            result = JSON.parse(str);
         } catch {
-            result = null
+            result = null;
         }
 
-        return result
+        return result;
     }
+
+    private constructor() {}
 }

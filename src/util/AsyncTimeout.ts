@@ -10,7 +10,7 @@ export async function astimeout(millisec: number, func?: () => Promise<void>): P
                 if (func != null) {
                     await func();
                 }
-            } catch(e) {
+            } catch (e) {
                 reject(e);
             }
 
@@ -30,7 +30,7 @@ export async function aswait(millisec: number, func?: () => Promise<void>): Prom
             if (func != null) {
                 await func();
             }
-        } catch(e) {
+        } catch (e) {
             reject(e);
         }
 
