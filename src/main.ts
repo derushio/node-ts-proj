@@ -9,7 +9,7 @@ const execPath = path.dirname(process.argv[1]);
 const publicPath = path.resolve(execPath, '../public');
 
 function initSourceMap(): void {
-    if (process.env.NODE_ENV == 'development') {
+    if (process.env.NODE_ENV === 'development') {
         sourceMapSupport.install();
         console.log('ENV_LOG:', 'SOURCE MAP ENABLED');
     }
