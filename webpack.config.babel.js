@@ -11,7 +11,6 @@ import nodeExternals from 'webpack-node-externals';
 const contextPath = path.resolve(__dirname, './');
 const distPath = path.resolve(__dirname, 'dist');
 const srcPath = path.resolve(__dirname, 'src');
-const entryScriptsPath = path.resolve(srcPath, 'scripts/entry');
 
 const isProduct = process.env.NODE_ENV == 'production';
 
@@ -24,7 +23,7 @@ const config = {
 
     context: contextPath,
     entry: {
-        main: path.resolve(srcPath, 'main.ts')
+        main: path.resolve(srcPath, 'main.ts'),
     },
     externals: [ nodeExternals() ],
 
@@ -32,13 +31,13 @@ const config = {
         path: distPath,
         filename: '[name].bundle.js',
         // mark /dist/ folder as a public path so index.html can reach it
-        publicPath: './'
+        publicPath: './',
     },
 
     resolve: {
         extensions: [ '.js', '.ts', '.json' ],
         alias: {
-            '@': path.resolve(srcPath)
+            '@': path.resolve(srcPath),
         },
     },
 
@@ -46,17 +45,17 @@ const config = {
         rules: [
             {
                 test: /\.ts(x?)$/,
-                use: [ 'ts-loader' ]
-            }
-        ]
+                use: [ 'tslint-loader' ],
+            },
+        ],
     },
 
     plugins: [
         new webpack.DefinePlugin({
             'process.env': {
-                NODE_ENV: `"${process.env.NODE_ENV}"`
-            }
-        })
+                NODE_ENV: `"${process.env.NODE_ENV}"`,
+            },
+        }),
     ],
 
     optimization: {
@@ -66,14 +65,14 @@ const config = {
                 uglifyOptions: {
                     ecma: 8,
                     compress: {
-                        warnings: false
-                    }
-                }
-            })
-        ]
+                        warnings: false,
+                    },
+                },
+            }),
+        ],
     },
 
-    devtool: isProduct? false: '#source-map'
+    devtool: isProduct? false: '#source-map',
 };
 
 export default config;
