@@ -5,12 +5,10 @@ function clean() {
 }
 
 function build() {
-    export NODE_ENV='production'
     clean && $(npm bin)/webpack
 }
 
 function dev() {
-    export NODE_ENV='development'
     clean && $(npm bin)/webpack && node dist/main.bundle.js
 }
 
