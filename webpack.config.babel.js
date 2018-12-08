@@ -54,7 +54,7 @@ const config = {
     },
 
     plugins: [
-        new Webpack.DefinePlugin({
+        new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: `"${process.env.NODE_ENV}"`,
             },
