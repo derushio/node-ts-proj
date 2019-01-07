@@ -21,7 +21,7 @@ const isProduct = env.NODE_ENV == 'production';
 /**
  * Webpack Config
  */
-const config = {
+module.exports = {
     target: 'node',
     mode: env.NODE_ENV,
 
@@ -78,5 +78,3 @@ const config = {
 
     devtool: isProduct? false: '#source-map',
 };
-
-module.exports = config;
