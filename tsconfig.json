@@ -16,6 +16,7 @@
         }
     },
     "include": [
+        "src/**/*.ts",
         "node_modules/@types/**/*.d.ts",
         "src/types/**/*.d.ts"
     ],
