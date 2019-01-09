@@ -19,7 +19,7 @@ async function initServer(): Promise<void> {
     const server = express();
     server.use(express.static(publicPath));
     server.listen(port);
-    console.log('ENV_LOG:', `//localhost:${port} --> ${publicPath}`);
+    console.log('ENV_LOG:', `http://localhost:${port} --> ${publicPath}`);
 }
 
 async function main(): Promise<void> {

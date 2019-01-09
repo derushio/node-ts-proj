@@ -1,8 +1,8 @@
 #!/bin/bash -eu
 
-npm init
+yarn init
 node ./_boilerplate/install-npm-scripts.js
-npm install
+yarn install
 
 rm ./install.sh
 rm -rf ./_boilerplate
