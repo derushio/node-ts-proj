@@ -2,6 +2,10 @@ const dotenv = require('dotenv');
 const env = Object.assign({},
     dotenv.config({ path: '.env' }).parsed || {},
     dotenv.config({ path: '.env.local' }).parsed || {});
+env.NODE_ENV = (env.NODE_ENV === 'production')
+    ? env.NODE_ENV
+    : process.env.NODE_ENV;
+console.log('NODE_ENV:', env.NODE_ENV);
 
 const path = require('path');
 const webpack = require('webpack');
