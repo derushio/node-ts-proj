@@ -21,14 +21,14 @@
         "babel-loader": "^8.0.5",
         "babel-preset-env": "^1.7.0",
         "dotenv": "^6.2.0",
-        "source-map-support": "^0.5.9",
+        "source-map-support": "^0.5.10",
         "ts-loader": "^5.3.3",
         "tslint-loader": "^3.6.0",
-        "tslint": "^5.12.0",
-        "typedoc": "^0.14.0",
+        "tslint": "^5.12.1",
+        "typedoc": "^0.14.2",
         "uglifyjs-webpack-plugin": "^2.1.1",
         "webpack-cli": "^3.2.1",
         "webpack-node-externals": "^1.7.2",
-        "webpack": "^4.28.1"
+        "webpack": "^4.28.4"
     }
 }
