@@ -6,7 +6,6 @@ const env = Object.assign({},
 const path = require('path');
 const webpack = require('webpack');
 
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const nodeExternals = require('webpack-node-externals');
 
 /**
@@ -61,20 +60,6 @@ module.exports = {
             },
         }),
     ],
-
-    optimization: {
-        minimizer: [
-            new UglifyJsPlugin({
-                sourceMap: !isProduct,
-                uglifyOptions: {
-                    ecma: 8,
-                    compress: {
-                        warnings: false,
-                    },
-                },
-            }),
-        ],
-    },
 
     devtool: isProduct? false: '#source-map',
 };
