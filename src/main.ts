@@ -4,6 +4,8 @@ import * as sourceMapSupport from 'source-map-support';
 import * as path from 'path';
 import * as express from 'express';
 
+import * as _ from 'lodash';
+
 const port = 3000;
 const execPath = path.dirname(process.argv[1]);
 const publicPath = path.resolve(execPath, '../public');
