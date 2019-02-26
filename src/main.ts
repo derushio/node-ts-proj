@@ -6,7 +6,7 @@ import * as express from 'express';
 
 import * as _ from 'lodash';
 
-const port = 3000;
+const port = 8080;
 const execPath = path.dirname(process.argv[1]);
 const publicPath = path.resolve(execPath, '../public');
 
