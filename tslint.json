@@ -12,6 +12,7 @@
         "ordered-imports": false,
         "object-literal-sort-keys": false,
         "no-consecutive-blank-lines": false,
-        "forin": false
+        "forin": false,
+        "variable-name": false
     }
 }
